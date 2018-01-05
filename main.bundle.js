@@ -818,7 +818,6 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 var WebService = (function () {
-    // public uploader: FileUploader = new FileUploader({ url: 'https://restodemoapi.herokuapp.com/upload' });
     function WebService(http, router) {
         this.http = http;
         this.router = router;
@@ -826,9 +825,10 @@ var WebService = (function () {
         this.TOKEN_KEY = 'token';
         this.USER_ROLE = "userrole";
         this.loginvalid = "loginvalid";
-        this.base_url = 'http://localhost:8088/api/';
-        //base_url = 'https://restodemoapi.herokuapp.com/api/';
-        this.uploader = new __WEBPACK_IMPORTED_MODULE_4_ng2_file_upload__["FileUploader"]({ url: 'http://localhost:8088/upload' });
+        // base_url = 'http://localhost:8088/api/';
+        this.base_url = 'https://restodemoapi.herokuapp.com/api/';
+        //public uploader: FileUploader = new FileUploader({ url: 'http://localhost:8088/upload' });
+        this.uploader = new __WEBPACK_IMPORTED_MODULE_4_ng2_file_upload__["FileUploader"]({ url: 'https://restodemoapi.herokuapp.com/upload' });
     }
     WebService.prototype.newregister = function (firstname, lastname, mobileno, email, password) {
         var data = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["e" /* URLSearchParams */]();
