@@ -1,0 +1,47 @@
+<body>
+
+  <form class="register-form" [formGroup]="login">
+
+    <div class="container"> 
+        <div class="row">
+            <div class="col-sm-7">
+                
+            <div class="col-lg-4 col-sm-6 mr-auto ml-auto">
+    <h3 class="title">LOGIN</h3>
+    
+            
+       <!-- <span *ngIf="messageemailpwd" style="color:red !important;font: bold 15px Georgia, serif;margin-right: 44%;">Incorrect Email or Password</span>  -->
+      <br>
+      <br>
+
+      <label>
+        <b>Username</b>
+      </label><br>
+      <input type="text" placeholder="Enter Username" formControlName="email" required="">
+      <span *ngIf="messageemail" style="color:red !important;font: bold 15px Georgia, serif;margin-right: 44%;">Email is required</span><br>
+      <label>
+        <b>Password</b>
+      </label><br>
+      <input type="password" placeholder="Enter Password" formControlName="password" required="">
+      <br>
+      
+      <span *ngIf="messagepassword" style="color:red !important;font: bold 15px Georgia, serif;margin-right: 44%;">password is required</span>
+
+      <button type="register" (click)="Login()">LOGIN</button>
+      <button type="button" class="cancelbtn" (click)="cancle()">CANCLE</button>
+      
+      <input type="checkbox" checked="checked"> Remember me
+</div>
+</div>
+    </div>
+    </div>
+    <div class="container">
+      
+
+      <!--<span class="forgot">
+        <a href="#" class="btn btn-link btn-danger"> Forgot password?</a>
+      </span>-->
+    </div>
+
+  </form>
+</body>

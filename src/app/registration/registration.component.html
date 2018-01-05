@@ -1,0 +1,74 @@
+<!-- <body>
+
+  <form class="register-form" [formGroup]="add">
+    <div class="wrapper">
+
+      <div class="col-lg-4 col-sm-6 mr-auto ml-auto">
+
+        <div>
+          <input class="form-control" placeholder="First Name" id="firstname" formControlName="firstname" type="text" required="">
+          <input class="form-control" placeholder="Last Name" id="lastname" formControlName="lastname" type="text" required="">
+          <input class="form-control" placeholder="Mobile Number" id="mobileno" formControlName="mobileno" type="text" required="">
+          <input class="form-control" placeholder="Email" id="email" formControlName="email" type="text" required="">
+          <input class="form-control" placeholder="Password" id="password" formControlName="password" type="text" required="">
+
+          <button type="register" (click)="newregister()">Register</button>
+          <br>
+        </div>
+
+        <div class="container" style="background-color:#f1f1f1">
+          <button type="button" class="cancelbtn" (click)="cancle()">Cancel</button>
+        </div>
+      </div>
+    </div>
+  </form>
+</body> -->
+<body>
+    <form class="register-form" [formGroup]="add">
+        <div class="wrapper">
+            <div class="page-header">
+                <div class="filter"></div>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-4 col-sm-6 mr-auto ml-auto">
+                            <div class="card card-register">
+                                <h3 class="title">Registration</h3>
+
+                               
+                                <input class="form-control" placeholder="First Name" id="firstname" formControlName="firstname" type="text" required="">
+                                <span *ngIf="messagefirstname" style="color:red !important;font: bold 15px Georgia, serif;margin-right: 44%;">FirstName is required</span>
+
+                                <!-- <input type="text"  class="form-control" id="firstname" formcontrolname="firstname" placeholder="first name"> -->
+                               
+                                <input class="form-control" placeholder="Last Name" id="lastname" formControlName="lastname" type="text">
+
+                                <!-- <input type="text" class="form-control" id="lastname" formcontrolname="lastname" placeholder="Last Name"> -->
+                               
+                                <input class="form-control" placeholder="Mobile Number" id="mobileno" formControlName="mobileno" type="text">
+
+                                <!-- <input type="number" class="form-control" id="mobileno" formcontrolname="mobileno" placeholder="Mobile Number"> -->
+                               
+                                <input class="form-control" placeholder="Email " id="email" formControlName="email" type="text">
+                                <span *ngIf="messageemail" style="color:red !important;font: bold 15px Georgia, serif;margin-right: 44%;">Email is required</span>
+                                
+                                <!-- <input type="text" class="form-control" id="email" formcontrolname="email" placeholder="Email"> -->
+                               
+                                <input class="form-control" placeholder="Password" id="password" formControlName="password" type="text">
+                                <span *ngIf="messagepassword" style="color:red !important;font: bold 15px Georgia, serif;margin-right: 44%;">Password is required</span>
+                                
+                                <!-- <input type="password" class="form-control" id="password" formcontrolname="password" placeholder="Password"> -->
+
+                                <button class="btn btn-danger btn-block btn-round" (click)="newregister()">Submit</button>
+                               
+                                <button class="btn btn-danger btn-block btn-round" (click)="cancle()">Cancle</button>
+
+
+                            </div>
+                        </div>
+                    </div>
+                  
+                </div>
+            </div>
+        </div>
+    </form>
+</body>

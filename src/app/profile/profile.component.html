@@ -1,0 +1,202 @@
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand">Restro </a>
+    </div>
+    <ul class="nav navbar-nav">
+      <!-- <li><a href="home">Home</a></li> -->
+      <li>
+        <a>Home</a>
+      </li>
+      <li>
+        <a>contact Us</a>
+      </li>
+
+      <li class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown">Help
+          <span class="caret"></span>
+        </a>
+        <ul class="dropdown-menu">
+          <!--<li>
+            <a>Page 1-1</a>
+          </li>-->
+          <li>
+            <!-- <a href="#">Page 1-2</a> -->
+          </li>
+          <li>
+            <!-- <a href="#">Page 1-3</a> -->
+          </li>
+        </ul>
+      </li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+
+      <li>
+        <a href="login">
+          <span class="glyphicon glyphicon-log-in"></span> Logout</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<!-- popup box -->
+
+<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Add Menu</button>
+<br>
+<br>
+<div class="modal fade" id="myModal" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+        <div class="col-sm-10" style=" background-color: skyblue;">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" >&times;</button>
+        <h1 class="modal-title">Add Menu</h1>
+      </div>
+      <div class="modal-body">
+
+  <input type="radio"  [(ngModel)]="radio"  value="Veg" checked="checked"> Veg 
+ <input type="radio" [(ngModel)]="radio" value="Nonveg" > NonVeg <br>
+     
+         <br>
+          <br>
+          <label> Select category</label>
+          <select class="form-control" placeholder="Select Category" [(ngModel)]="categorytype" style="width:90%">
+            <option value="starter">starter</option>
+            <option value="Soup">Soup</option>
+            <option value="maincourse">Main Course</option>
+            <option value="dessert">Beverage and Dessert</option>
+          </select>
+          <br>
+          <label>
+            <b>Item Name</b>
+          </label>
+          <br>
+          <input class="form-control" [(ngModel)]="name" type="text" style="width:90%">
+          <br>
+          <label>
+            <b>cost</b>
+          </label>
+          <br>
+          <input class="form-control" [(ngModel)]="cost" type="text" style="width:90%">
+          <br>
+          <label>
+            <b>More Info</b>
+          </label>
+          <br>
+
+          <textarea [(ngModel)]="info" class="form-control" rows="4" cols="50" style="width:90%"></textarea>
+          <br>
+          <div class="container">
+            <div class="row">
+              <div class="col-md-3">
+                <label> Upload video</label>
+                <input type="file" class="form-control" [(ngModel)]="video" name="video" ng2FileSelect [uploader]="uploader" (change)="getFiles($event)">
+              </div>
+            </div>
+          </div>
+
+          <!--<div class="row" class="container">
+            <button *ngIf="addbtn" type="button" class="btn btn-sm btn-default" data-dismiss="modal" (click)="addprofile()" class="addprofile">Add</button>
+            
+            <button *ngIf="updatebtn" type="button" class="btn btn-sm btn-default" class="addprofile" disabled>Add</button>
+
+            <button type="button" (click)="Cancle()" class="cancle" data-dismiss="modal">Cancel</button>
+
+
+            <button *ngIf="updatebtn" type="button" class="btn btn-sm btn-default" data-dismiss="modal" (click)="updateprofile()" class="updateprofile">Update</button>
+            <button *ngIf="addbtn" type="button" class="btn btn-sm btn-default" class="updateprofile" disabled>Update</button>
+ </div>-->
+ <div class="row" class="container">
+            <button  type="button" class="btn btn-sm btn-default"  data-dismiss="modal" (click)="submit()" class="addprofile">Submit</button>
+            
+
+            <button type="button" (click)="Cancle()"  data-dismiss="modal">Cancel</button>
+
+
+ </div>
+ 
+      </div>
+      
+    </div>
+</div>
+  </div>
+</div>
+
+<div class="col-sm-12">
+  <div class="col-sm-6" class="container-fluid text-left">
+    <div class="row content">
+<div class="col-sm-6" class="table-responsive" style=" background-color: skyblue;">
+        <table border="1" class="table table-striped table-bordered">
+          <thead>
+            <tr>
+              <th>type of food</th>
+
+              <th>category</th>
+              <th>name</th>
+              <th>cost</th>
+              <th>info</th>
+              <th>video</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of items ; let i=index">
+              <td>{{item.radio}}</td>
+              <td>{{item.categoryid}}</td>
+              <td>{{item.name}}</td>
+              <td>{{item.cost}}</td>
+              <td>{{item.info}}</td>
+              <td>
+                <a href="">{{item.video}}</a>
+              </td>
+          
+              
+              <button type="button" (click)="EditClicked(item)" class="btn btn-sm btn-default" data-toggle="modal" data-target="#myModal" style="background-color: rgb(255, 94, 0);"> Edit </button>
+             
+             
+              <button type="button" class="btn btn-sm btn-default" data-toggle="modal" data-target="#deleteModal" style="background-color: rgb(255, 94, 0);">Delete</button>
+            
+              <div class="modal fade" id="deleteModal" role="dialog">
+                <div class="modal-dialog">
+                
+                  <!-- Modal content-->
+                  <div class="modal-content">
+                      <div class="col-sm-12" style=" background-color: skyblue;">
+                    <div class="modal-header">
+                      <button type="button" class="close" data-dismiss="modal">&times;</button>
+                      <h4 class="modal-title">Confirmation box</h4>
+                    </div>
+                    <div class="modal-body">
+                      
+                      <p>Are you sure you want to delete this menu item </p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" (click)="DeleteClicked(item)" class="btn btn-default" data-dismiss="modal">Delete</button>
+                        
+                      <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                  </div>
+                  </div>
+                </div>
+              </div>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+
+  <footer class="container-fluid text-center">
+    <b> copyright &copy; Sveltoz Solutions</b>
+  </footer>

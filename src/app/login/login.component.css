@@ -1,0 +1,57 @@
+/* Bordered form */
+/* form {
+    border: 400px solid #f1f1f1;
+} */
+
+/* Full-width inputs */
+
+input[type=text], input[type=password] {
+
+    width:300px !important;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+/* Set a style for login buttons */
+button {
+    background-color: rgb(233, 132, 17);
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+   
+}
+
+/* Extra style for the cancel button (red) */
+/*.cancelbtn {
+    width: auto;
+    padding: 10px 18px;
+    background-color: #bb514a;
+}*/
+
+/* Add padding to containers */
+.container {
+    padding: 16px;
+}
+
+/* The "Forgot password" text */
+span.psw {
+    float: right;
+    padding-top: 16px;
+}
+ 
+form {
+    height: 500px;
+
+    margin: 0 auto; 
+    width:400px;
+     /*background-image: linear-gradient(rgb(247, 49, 0), yellow);*/
+        /*background-image: ( yellow);*/
+        background-color: skyblue;
+        /*background-image: linear-gradient(skyblue,green);*/
+    
+}
